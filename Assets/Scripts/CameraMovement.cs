@@ -20,7 +20,7 @@ public class CameraMovement : MonoBehaviour
 
     private void GetInput()
     {
-        if (Input.GetKey(KeyCode.W))
+        /*if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.up * cameraSpeed * Time.deltaTime);
         }
@@ -41,13 +41,13 @@ public class CameraMovement : MonoBehaviour
             Mathf.Clamp(transform.position.x, 0, xMax),
             Mathf.Clamp(transform.position.y, yMin, 0),
             -10
-            );
+            );*/
     }
     
     public void SetLimits(Vector3 maxTile)
     {
-        Vector3 wp = Camera.main.ViewportToWorldPoint(new Vector3(1, 0));
-        xMax = maxTile.x - wp.x;
-        yMin = maxTile.y - wp.y;
+        Vector3 wp = Camera.main.ViewportToWorldPoint(new Vector3(0, 0));
+        xMax = maxTile.x + wp.x;
+        yMin = maxTile.y + wp.y;
     }
 }

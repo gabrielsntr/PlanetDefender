@@ -3,7 +3,9 @@ guid: 025feecebe4893248b7d85c884acd713
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cameraMovement: {instanceID: 0}
+  - redPortalPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

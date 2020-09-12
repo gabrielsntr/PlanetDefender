@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField]
     private GameObject[] tilePrefabs;
@@ -16,6 +16,16 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private CameraMovement cameraMovement;
 
+    private Point redSpawn;
+    
+    [SerializeField]
+    private GameObject redPortalPrefab;
+
+    [SerializeField]
+    private Transform map;
+
+    private Vector3 maxTile;
+
     public Dictionary<Point, TileScript> Tiles { get; set; }
 
     // Start is called before the first frame update
@@ -23,6 +33,8 @@ public class LevelManager : MonoBehaviour
     {
         Point p = new Point(0, 0);
         CreateLevel();
+        cameraMovement.SetLimits(new Vector3(this.maxTile.x + TileSize, this.maxTile.y - TileSize));
+
     }
 
     // Update is called once per frame
@@ -54,10 +66,30 @@ public class LevelManager : MonoBehaviour
                 PlaceTile(newTiles[x].ToString(), x, y, worldStart);
             }
         }
+        Point portalPosition = new Point(-1, -1);
+        for (int y = 0; y < mapY; y++)
+        {
+            char[] newTiles = mapData[y].ToCharArray();
+            for (int x = 0; x < mapX; x++)
+            {
+                if (newTiles[x].ToString().Equals("4"))
+                {
+                    Debug.Log(x + ", " + y);
+                    portalPosition = new Point(x, y);
+                    break;
+                }
+            }
+            if (portalPosition.X != -1 && portalPosition.Y != -1)
+            {
+                break;
+            }
+        }
 
         maxTile = Tiles[new Point(mapX-1, mapY-1)].transform.position;
+        this.maxTile = maxTile;
+        
+        SpawnPortal(portalPosition.X, portalPosition.Y, worldStart);
 
-        cameraMovement.SetLimits(new Vector3(maxTile.x + TileSize, maxTile.y - TileSize));
     }
 
     private void PlaceTile(string tileType, int x, int y, Vector3 worldStart)
@@ -65,10 +97,10 @@ public class LevelManager : MonoBehaviour
         int tileIndex = int.Parse(tileType);
         TileScript newTile = Instantiate(tilePrefabs[tileIndex]).GetComponent<TileScript>();
 
-        newTile.Setup(new Point(x, y), new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0));
+        newTile.Setup(new Point(x, y), new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0), map);
 
-        Tiles.Add(new Point(x, y), newTile);
-
+        
+        
     }
 
     private string[] ReadLevelText()
@@ -77,4 +109,15 @@ public class LevelManager : MonoBehaviour
         string data = bindData.text.Replace(Environment.NewLine, string.Empty);
         return data.Split('-');
     }
+
+    private void SpawnPortal(int x, int y, Vector3 worldStart)
+    {
+        if (x == -1 || y == -1)
+        {
+            x = 0;
+            y = 0;
+        }        
+        Instantiate(redPortalPrefab, new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0), Quaternion.identity);
+    }
+
 }
