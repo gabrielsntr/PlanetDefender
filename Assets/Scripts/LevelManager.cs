@@ -26,6 +26,8 @@ public class LevelManager : Singleton<LevelManager>
 
     private Vector3 maxTile;
 
+    private Point mapSize;
+
     public Dictionary<Point, TileScript> Tiles { get; set; }
 
     // Start is called before the first frame update
@@ -43,8 +45,6 @@ public class LevelManager : Singleton<LevelManager>
         
     }
 
-    
-
     void CreateLevel()
     {
 
@@ -55,8 +55,9 @@ public class LevelManager : Singleton<LevelManager>
         int mapX = mapData[0].ToCharArray().Length;
         int mapY = mapData.Length;
 
-        Vector3 maxTile = Vector3.zero;
+        mapSize = new Point(mapData[0].ToCharArray().Length, mapData.Length);
 
+        Vector3 maxTile = Vector3.zero;
         Vector3 worldStart = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height));
         for (int y = 0; y < mapY; y++)
         {
@@ -66,6 +67,7 @@ public class LevelManager : Singleton<LevelManager>
                 PlaceTile(newTiles[x].ToString(), x, y, worldStart);
             }
         }
+
         Point portalPosition = new Point(-1, -1);
         for (int y = 0; y < mapY; y++)
         {
@@ -97,10 +99,12 @@ public class LevelManager : Singleton<LevelManager>
         int tileIndex = int.Parse(tileType);
         TileScript newTile = Instantiate(tilePrefabs[tileIndex]).GetComponent<TileScript>();
 
-        newTile.Setup(new Point(x, y), new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0), map);
-
-        
-        
+        bool isPath = false;
+        if (tileType == "4" || tileType == "5")
+        {
+            isPath = true;
+        }
+        newTile.Setup(new Point(x, y), new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0), map, isPath);
     }
 
     private string[] ReadLevelText()
@@ -117,7 +121,12 @@ public class LevelManager : Singleton<LevelManager>
             x = 0;
             y = 0;
         }        
-        Instantiate(redPortalPrefab, new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0), Quaternion.identity);
+        Instantiate(redPortalPrefab, new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y) + (0.2f), 0), Quaternion.identity);
+    }
+
+    public bool InBounds(Point position)
+    {
+        return position.X >= 0 && position.Y >= 0 && position.X < mapSize.X && position.Y < mapSize.Y;
     }
 
 }
