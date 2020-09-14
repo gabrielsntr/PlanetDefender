@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AStarDebug : MonoBehaviour
 {
-    [SerializeField]
+    /*[SerializeField]
     private TileScript start, goal;
 
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class AStarDebug : MonoBehaviour
         ClickTile();
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            AStar.GetPath(start.GridPosition);
+            AStar.GetPath(start.GridPosition, goal.GridPosition);
         }
     }
 
@@ -46,13 +46,5 @@ public class AStarDebug : MonoBehaviour
                 }
             }
         }
-    }
-
-    public void DebugPath(HashSet<Node> openList)
-    {
-        foreach (Node node in openList)
-        {
-            node.TileRef.SpriteRenderer.color = Color.cyan;
-        }
-    }
+    }*/
 }

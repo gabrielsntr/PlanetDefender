@@ -1,7 +1,91 @@
 fileFormatVersion: 2
 guid: 456e233186a69ec4281d443311054550
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3439363824411256976
+    second: red_down_0
+  - first:
+      213: -6953910662031522873
+    second: red_down_1
+  - first:
+      213: -7502782728936254136
+    second: red_down_2
+  - first:
+      213: -3944932183057717349
+    second: red_down_3
+  - first:
+      213: -8098271552477977374
+    second: red_down_4
+  - first:
+      213: -6526441381042873172
+    second: red_down_5
+  - first:
+      213: -6677992605802564113
+    second: red_down_6
+  - first:
+      213: -2128678317092521995
+    second: red_down_7
+  - first:
+      213: 6845541874137417261
+    second: red_down_8
+  - first:
+      213: -7033141403990517480
+    second: red_down_9
+  - first:
+      213: -4308786895143350462
+    second: red_down_10
+  - first:
+      213: -493608691158696671
+    second: red_down_11
+  - first:
+      213: 651712170111672667
+    second: red_down_12
+  - first:
+      213: 8289820556578001792
+    second: red_down_13
+  - first:
+      213: -2241149997907350447
+    second: red_down_0
+  - first:
+      213: 7265091399737477878
+    second: red_down_1
+  - first:
+      213: -8040701666879594541
+    second: red_down_2
+  - first:
+      213: 3223751044211390797
+    second: red_down_3
+  - first:
+      213: -3431882043283891274
+    second: red_down_4
+  - first:
+      213: 8633871205209336485
+    second: red_down_5
+  - first:
+      213: -1202660965269133465
+    second: red_down_6
+  - first:
+      213: -1483008998336013980
+    second: red_down_7
+  - first:
+      213: 6555211225893649149
+    second: red_down_8
+  - first:
+      213: -4866863797333206936
+    second: red_down_9
+  - first:
+      213: 6955545619569542306
+    second: red_down_10
+  - first:
+      213: -2351157841102920388
+    second: red_down_11
+  - first:
+      213: -2486919857737052850
+    second: red_down_12
+  - first:
+      213: -1402604389736312554
+    second: red_down_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +124,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +155,315 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: red_down_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1645
+        width: 362
+        height: 360
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15c6d5673f5d5e0e0800000000000000
+      internalID: -2241149997907350447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_down_1
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 1647
+        width: 364
+        height: 356
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fa091ec22ac2d460800000000000000
+      internalID: 7265091399737477878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_down_2
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 1649
+        width: 366
+        height: 352
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df10c87f60b96090800000000000000
+      internalID: -8040701666879594541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_down_3
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 1650
+        width: 369
+        height: 348
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d49b38a9e701dbc20800000000000000
+      internalID: 3223751044211390797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_down_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 1236
+        width: 371
+        height: 344
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb950be6718f50d0800000000000000
+      internalID: -3431882043283891274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_down_5
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 1234
+        width: 367
+        height: 350
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aae9feed1ca1d770800000000000000
+      internalID: 8633871205209336485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_down_6
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 1233
+        width: 362
+        height: 354
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767a7eb593a4f4fe0800000000000000
+      internalID: -1202660965269133465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_down_7
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 1231
+        width: 358
+        height: 360
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469597f5c2b4b6be0800000000000000
+      internalID: -1483008998336013980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_down_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 814
+        width: 354
+        height: 364
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa3b0301e9c8fa50800000000000000
+      internalID: 6555211225893649149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_down_9
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 813
+        width: 350
+        height: 369
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 868debd792d657cb0800000000000000
+      internalID: -4866863797333206936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_down_10
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 813
+        width: 353
+        height: 367
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a4877193ef078060800000000000000
+      internalID: 6955545619569542306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_down_11
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 813
+        width: 356
+        height: 364
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c35af2686620f5fd0800000000000000
+      internalID: -2351157841102920388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_down_12
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 397
+        width: 358
+        height: 362
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4dc7bec09fac7dd0800000000000000
+      internalID: -2486919857737052850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_down_13
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 397
+        width: 362
+        height: 360
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6111d552db2f88ce0800000000000000
+      internalID: -1402604389736312554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

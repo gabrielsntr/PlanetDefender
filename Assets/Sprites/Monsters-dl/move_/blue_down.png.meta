@@ -1,7 +1,49 @@
 fileFormatVersion: 2
 guid: c32ccf73f6c4af749b6522e6ec855834
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8106710672145889625
+    second: blue_down_0
+  - first:
+      213: 2053872485174102446
+    second: blue_down_1
+  - first:
+      213: -8784223388501063155
+    second: blue_down_2
+  - first:
+      213: 1345188831571636132
+    second: blue_down_3
+  - first:
+      213: -6722633954953332223
+    second: blue_down_4
+  - first:
+      213: -3689712789366144076
+    second: blue_down_5
+  - first:
+      213: 4454244614506697795
+    second: blue_down_6
+  - first:
+      213: -5294295326115225195
+    second: blue_down_7
+  - first:
+      213: -6297823841785138552
+    second: blue_down_8
+  - first:
+      213: 4160595988908195991
+    second: blue_down_9
+  - first:
+      213: 5407194980595302194
+    second: blue_down_10
+  - first:
+      213: -805491733929134569
+    second: blue_down_11
+  - first:
+      213: 8565829678597370064
+    second: blue_down_12
+  - first:
+      213: 125334763364177266
+    second: blue_down_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +82,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +113,315 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: blue_down_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1716
+        width: 218
+        height: 315
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 959bf16b762d08070800000000000000
+      internalID: 8106710672145889625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_down_1
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 1716
+        width: 219
+        height: 312
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea940c4b422d08c10800000000000000
+      internalID: 2053872485174102446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_down_2
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 1717
+        width: 219
+        height: 307
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a47b47e5b281680800000000000000
+      internalID: -8784223388501063155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_down_3
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 1717
+        width: 220
+        height: 304
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af66ad7d121ba210800000000000000
+      internalID: 1345188831571636132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_down_4
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1384
+        width: 221
+        height: 301
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10af608390864b2a0800000000000000
+      internalID: -6722633954953332223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_down_5
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 1385
+        width: 224
+        height: 304
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b38d9a54c18bccc0800000000000000
+      internalID: -3689712789366144076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_down_6
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 1386
+        width: 228
+        height: 307
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3445e5690e7a0dd30800000000000000
+      internalID: 4454244614506697795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_down_7
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 1386
+        width: 232
+        height: 311
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59124e68372e686b0800000000000000
+      internalID: -5294295326115225195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_down_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1055
+        width: 237
+        height: 314
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 882396c4592a998a0800000000000000
+      internalID: -6297823841785138552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_down_9
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1059
+        width: 240
+        height: 317
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 790c9c412086db930800000000000000
+      internalID: 4160595988908195991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_down_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1058
+        width: 235
+        height: 317
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f78a1bf273a0b40800000000000000
+      internalID: 5407194980595302194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_down_11
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 1054
+        width: 230
+        height: 317
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 716f3a1298152d4f0800000000000000
+      internalID: -805491733929134569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_down_12
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 721
+        width: 224
+        height: 316
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d07b4f75b0ffd670800000000000000
+      internalID: 8565829678597370064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_down_13
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 720
+        width: 218
+        height: 315
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2755450ad474db100800000000000000
+      internalID: 125334763364177266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

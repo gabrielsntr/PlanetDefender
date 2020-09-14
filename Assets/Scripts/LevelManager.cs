@@ -16,10 +16,28 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField]
     private CameraMovement cameraMovement;
 
-    private Point redSpawn;
-    
+
+    public Point StartPath { get; set; }
+    public Point EndPath { get; set; }
+
+    private Stack<Node> path;
+
+    public Stack<Node> Path 
+    {
+        get
+        {
+            if(path == null)
+            {
+                GeneratePath();
+            }
+            return new Stack<Node>(new Stack<Node>(path));
+        }
+    }
+
     [SerializeField]
     private GameObject redPortalPrefab;
+
+    public Portal RedPortal { get; set; }
 
     [SerializeField]
     private Transform map;
@@ -47,7 +65,6 @@ public class LevelManager : Singleton<LevelManager>
 
     void CreateLevel()
     {
-
         Tiles = new Dictionary<Point, TileScript>();
 
         string[] mapData = ReadLevelText();
@@ -59,31 +76,24 @@ public class LevelManager : Singleton<LevelManager>
 
         Vector3 maxTile = Vector3.zero;
         Vector3 worldStart = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height));
-        for (int y = 0; y < mapY; y++)
-        {
-            char[] newTiles = mapData[y].ToCharArray();
-            for (int x = 0; x < mapX; x++)
-            {
-                PlaceTile(newTiles[x].ToString(), x, y, worldStart);
-            }
-        }
-
         Point portalPosition = new Point(-1, -1);
         for (int y = 0; y < mapY; y++)
         {
             char[] newTiles = mapData[y].ToCharArray();
             for (int x = 0; x < mapX; x++)
             {
-                if (newTiles[x].ToString().Equals("4"))
+                
+                //Debug.Log("Tile: " + newTiles[x].ToString() + ", x: " + x + ", y: " + y);
+                string tileType = newTiles[x].ToString();
+                PlaceTile(tileType, x, y, worldStart);
+                if (tileType == "6")
                 {
-                    Debug.Log(x + ", " + y);
                     portalPosition = new Point(x, y);
-                    break;
                 }
-            }
-            if (portalPosition.X != -1 && portalPosition.Y != -1)
-            {
-                break;
+                if (tileType == "7")
+                {
+                    EndPath = new Point(x, y);
+                }
             }
         }
 
@@ -91,6 +101,7 @@ public class LevelManager : Singleton<LevelManager>
         this.maxTile = maxTile;
         
         SpawnPortal(portalPosition.X, portalPosition.Y, worldStart);
+        StartPath = new Point(portalPosition.X, portalPosition.Y);
 
     }
 
@@ -100,7 +111,7 @@ public class LevelManager : Singleton<LevelManager>
         TileScript newTile = Instantiate(tilePrefabs[tileIndex]).GetComponent<TileScript>();
 
         bool isPath = false;
-        if (tileType == "4" || tileType == "5")
+        if (tileType == "4" || tileType == "5" || tileType == "6" || tileType == "7")
         {
             isPath = true;
         }
@@ -121,12 +132,19 @@ public class LevelManager : Singleton<LevelManager>
             x = 0;
             y = 0;
         }        
-        Instantiate(redPortalPrefab, new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y) + (0.2f), 0), Quaternion.identity);
+        GameObject tmp = (GameObject) Instantiate(redPortalPrefab, new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y) + (0.2f), 0), Quaternion.identity);
+        RedPortal = tmp.GetComponent<Portal>();
+        RedPortal.name = "RedPortal";
     }
 
     public bool InBounds(Point position)
     {
         return position.X >= 0 && position.Y >= 0 && position.X < mapSize.X && position.Y < mapSize.Y;
+    }
+
+    public void GeneratePath()
+    {
+        path = AStar.GetPath(StartPath, EndPath);
     }
 
 }

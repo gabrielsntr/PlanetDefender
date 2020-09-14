@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 76665990138403051}
   - component: {fileID: 3453894193037051787}
   - component: {fileID: 1165245499483701429}
+  - component: {fileID: 1920717305335997293}
   m_Layer: 0
   m_Name: red_idle_0
   m_TagString: Untagged
@@ -102,3 +103,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1920717305335997293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467602465080070318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4378a3a2a69c7354bbd9befc8f0f35ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

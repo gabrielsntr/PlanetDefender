@@ -14,6 +14,8 @@ public class TileScript : MonoBehaviour
     public bool IsEmpty { get; private set; }
     public bool IsPath { get; set; }
 
+    public Vector3 WorldPosition { get; set; }
+
     public SpriteRenderer SpriteRenderer { get => spriteRenderer; set => spriteRenderer = value; }
 
     public SpriteRenderer spriteRenderer;
@@ -34,6 +36,7 @@ public class TileScript : MonoBehaviour
     public void Setup(Point gridPos, Vector3 worldPos, Transform parent, bool isPath)
     {
         this.GridPosition = gridPos;
+        this.WorldPosition = worldPos;
         transform.position = worldPos;
         transform.SetParent(parent);
         this.IsPath = isPath;

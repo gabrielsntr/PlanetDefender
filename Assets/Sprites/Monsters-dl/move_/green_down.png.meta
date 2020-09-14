@@ -1,7 +1,91 @@
 fileFormatVersion: 2
 guid: 6c8fea2027063294898b29e00940fa44
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1757238573267503564
+    second: green_down_0
+  - first:
+      213: -6085775278676941090
+    second: green_down_1
+  - first:
+      213: -6883041208504487795
+    second: green_down_2
+  - first:
+      213: 5185688294381524188
+    second: green_down_3
+  - first:
+      213: -169640828441766944
+    second: green_down_4
+  - first:
+      213: 2092783801063764886
+    second: green_down_5
+  - first:
+      213: -244730903738757744
+    second: green_down_6
+  - first:
+      213: 6635020087035580188
+    second: green_down_7
+  - first:
+      213: -3431526299661963770
+    second: green_down_8
+  - first:
+      213: -4361138212577028453
+    second: green_down_9
+  - first:
+      213: -7294130471148463070
+    second: green_down_10
+  - first:
+      213: -4725563534784545749
+    second: green_down_11
+  - first:
+      213: 2385819864615112481
+    second: green_down_12
+  - first:
+      213: 7288216262853261716
+    second: green_down_13
+  - first:
+      213: 749954718951421237
+    second: green_down_0
+  - first:
+      213: 699243621766725341
+    second: green_down_1
+  - first:
+      213: 327093027590497437
+    second: green_down_2
+  - first:
+      213: 2903415338899754813
+    second: green_down_3
+  - first:
+      213: 4739386118665967338
+    second: green_down_4
+  - first:
+      213: -4133686266907447490
+    second: green_down_5
+  - first:
+      213: 6518495967088996553
+    second: green_down_6
+  - first:
+      213: 7772554189131433484
+    second: green_down_7
+  - first:
+      213: 3816794688459357310
+    second: green_down_8
+  - first:
+      213: -3520051733824279345
+    second: green_down_9
+  - first:
+      213: 6224631118580780149
+    second: green_down_10
+  - first:
+      213: 5392150291140349139
+    second: green_down_11
+  - first:
+      213: 1444312611808691502
+    second: green_down_12
+  - first:
+      213: -2038572821596833548
+    second: green_down_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +124,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +155,315 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: green_down_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1574
+        width: 424
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5353abce7df586a00800000000000000
+      internalID: 749954718951421237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_down_1
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 1575
+        width: 432
+        height: 442
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddefcd68e5634b900800000000000000
+      internalID: 699243621766725341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_down_2
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 1576
+        width: 441
+        height: 438
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d94e90620611a8400800000000000000
+      internalID: 327093027590497437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_down_3
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1576
+        width: 448
+        height: 435
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3f4a862ed00b4820800000000000000
+      internalID: 2903415338899754813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_down_4
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1099
+        width: 457
+        height: 432
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae69088809ea5c140800000000000000
+      internalID: 4739386118665967338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_down_5
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 1099
+        width: 450
+        height: 438
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f2210dd3232a6c0800000000000000
+      internalID: -4133686266907447490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_down_6
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 1098
+        width: 444
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c0f72cab89567a50800000000000000
+      internalID: 6518495967088996553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_down_7
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 1097
+        width: 438
+        height: 452
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0647a0bad8addb60800000000000000
+      internalID: 7772554189131433484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_down_8
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 619
+        width: 431
+        height: 459
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7cb7320c8af7f430800000000000000
+      internalID: 3816794688459357310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_down_9
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 618
+        width: 424
+        height: 466
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcce76e1993462fc0800000000000000
+      internalID: -3520051733824279345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_down_10
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 618
+        width: 424
+        height: 461
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c89d8d505526650800000000000000
+      internalID: 6224631118580780149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_down_11
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 619
+        width: 424
+        height: 456
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dc80f6fe14c4da40800000000000000
+      internalID: 5392150291140349139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_down_12
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 143
+        width: 424
+        height: 450
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e25497b0baa3b0410800000000000000
+      internalID: 1444312611808691502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: green_down_13
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 143
+        width: 424
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f874ffc1d885b3e0800000000000000
+      internalID: -2038572821596833548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

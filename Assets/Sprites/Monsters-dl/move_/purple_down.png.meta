@@ -1,7 +1,91 @@
 fileFormatVersion: 2
 guid: 3ce9396025ca31448a5c545975653372
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5583212351810223331
+    second: purple_down_0
+  - first:
+      213: 2872310439889795171
+    second: purple_down_1
+  - first:
+      213: 617675913762992798
+    second: purple_down_2
+  - first:
+      213: -4218806256813867073
+    second: purple_down_3
+  - first:
+      213: 5929166115170394715
+    second: purple_down_4
+  - first:
+      213: 1502158661802097135
+    second: purple_down_5
+  - first:
+      213: -8475699850994726138
+    second: purple_down_6
+  - first:
+      213: -9030289181911378674
+    second: purple_down_7
+  - first:
+      213: 9176747953476083779
+    second: purple_down_8
+  - first:
+      213: -3213866091823961710
+    second: purple_down_9
+  - first:
+      213: 8207526803624609680
+    second: purple_down_10
+  - first:
+      213: -284141677544646564
+    second: purple_down_11
+  - first:
+      213: 8422092793023546238
+    second: purple_down_12
+  - first:
+      213: -5074410591776639099
+    second: purple_down_13
+  - first:
+      213: 8153772521562569397
+    second: purple_down_0
+  - first:
+      213: -3981271397489686498
+    second: purple_down_1
+  - first:
+      213: 4871130165872047687
+    second: purple_down_2
+  - first:
+      213: 7558150149818513452
+    second: purple_down_3
+  - first:
+      213: 4534314061171173868
+    second: purple_down_4
+  - first:
+      213: 7066235870761512071
+    second: purple_down_5
+  - first:
+      213: 7251931408540545600
+    second: purple_down_6
+  - first:
+      213: 4055330342285009804
+    second: purple_down_7
+  - first:
+      213: 4953244747534568453
+    second: purple_down_8
+  - first:
+      213: -7229779068315459633
+    second: purple_down_9
+  - first:
+      213: -429510599732531334
+    second: purple_down_10
+  - first:
+      213: 4193991842177967380
+    second: purple_down_11
+  - first:
+      213: 8355604282716888769
+    second: purple_down_12
+  - first:
+      213: -7842949251661578458
+    second: purple_down_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +124,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +155,315 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: purple_down_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 1704
+        width: 321
+        height: 319
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5baf31768e4082170800000000000000
+      internalID: 8153772521562569397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_down_1
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1704
+        width: 328
+        height: 316
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e184436f1ceafb8c0800000000000000
+      internalID: -3981271397489686498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_down_2
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1705
+        width: 334
+        height: 312
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7463e77d31bb99340800000000000000
+      internalID: 4871130165872047687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_down_3
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 1705
+        width: 340
+        height: 309
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c287ff63481f3e860800000000000000
+      internalID: 7558150149818513452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_down_4
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 1705
+        width: 347
+        height: 306
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce9aa246d9e1dee30800000000000000
+      internalID: 4534314061171173868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_down_5
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 1361
+        width: 340
+        height: 312
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78cecdff510501260800000000000000
+      internalID: 7066235870761512071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_down_6
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 1360
+        width: 334
+        height: 317
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 042be85913904a460800000000000000
+      internalID: 7251931408540545600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_down_7
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 1360
+        width: 328
+        height: 323
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c83e2c2d57d674830800000000000000
+      internalID: 4055330342285009804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_down_8
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 1360
+        width: 322
+        height: 328
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c0e5ebad57db440800000000000000
+      internalID: 4953244747534568453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_down_9
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 1360
+        width: 316
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf908c0e3aaaab90800000000000000
+      internalID: -7229779068315459633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_down_10
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 1016
+        width: 317
+        height: 330
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7f6dab92621a0af0800000000000000
+      internalID: -429510599732531334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_down_11
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 1016
+        width: 318
+        height: 326
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41567e71c5d043a30800000000000000
+      internalID: 4193991842177967380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_down_12
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 1016
+        width: 320
+        height: 323
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce921343d115f370800000000000000
+      internalID: 8355604282716888769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple_down_13
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 1016
+        width: 321
+        height: 319
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62fbb47953f382390800000000000000
+      internalID: -7842949251661578458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

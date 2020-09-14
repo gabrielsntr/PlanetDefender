@@ -101,6 +101,9 @@ TextureImporter:
   - first:
       213: 2665757887252285942
     second: red_idle_15
+  - first:
+      213: -5123109146697013693
+    second: red_idle_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -211,7 +214,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 404
-        y: 3595
+        y: 3602
         width: 360
         height: 483
       alignment: 1
@@ -273,7 +276,7 @@ TextureImporter:
       name: red_idle_4
       rect:
         serializedVersion: 2
-        x: 1564
+        x: 1557
         y: 3598
         width: 360
         height: 480

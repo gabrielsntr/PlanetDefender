@@ -18,6 +18,8 @@ public class TowerBtn : MonoBehaviour
     [SerializeField]
     private Text priceTxt;
 
+    public bool IsActive { get; set; }
+
     public GameObject TowerPrefab { get => towerPrefab; }
     public Sprite Sprite { get => sprite; }
     public int Price { get => price; }
@@ -26,4 +28,5 @@ public class TowerBtn : MonoBehaviour
     {
         this.priceTxt.text = Price.ToString();
     }
+
 }
