@@ -100,14 +100,12 @@ public class TowerRange : MonoBehaviour
     {
         GameObject turret = parent.transform.GetChild(1).gameObject;
 
-        Vector2 direction = target.transform.position - turret.transform.position;
+        Vector2 direction = new Vector2(
+        target.transform.position.x - turret.transform.position.x,
+        target.transform.position.y - turret.transform.position.y
+        );
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        
-        turret.transform.rotation = Quaternion.Slerp(turret.transform.rotation, rotation, 5f * Time.deltaTime);
+        turret.transform.up = direction;
 
     }
 }

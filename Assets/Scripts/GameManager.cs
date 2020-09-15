@@ -54,14 +54,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private Text waveText;
 
-    [SerializeField]
-    private GameObject waveBtn;
 
     [SerializeField]
-    private GameObject towersBtn;
-
-    [SerializeField]
-    private GameObject speedBtn, pauseBtn;
+    private GameObject speedBtn, pauseBtn, towersBtn, waveBtn, wavePanel, currencyPanel, healthPanel;
 
     private List<Monster> activeMonsters = new List<Monster>();
 
@@ -112,6 +107,11 @@ public class GameManager : Singleton<GameManager>
         {
             ClickedBtn = towerBtn;
             Hover.Instance.Activate(towerBtn.Sprite);
+            wavePanel.SetActive(false);
+            healthPanel.SetActive(false);
+            currencyPanel.SetActive(false);
+            towersBtn.SetActive(false);
+            waveBtn.SetActive(false);
         }
     }
 
@@ -120,6 +120,11 @@ public class GameManager : Singleton<GameManager>
         Currency -= ClickedBtn.Price;
         Hover.Instance.Deactivate();
         ClickedBtn = null;
+        wavePanel.SetActive(true);
+        healthPanel.SetActive(true);
+        currencyPanel.SetActive(true);
+        towersBtn.SetActive(true);
+        waveBtn.SetActive(true);
     }
 
     private void HandleEscape()
@@ -128,11 +133,21 @@ public class GameManager : Singleton<GameManager>
         {
             Hover.Instance.Deactivate();
             ClickedBtn = null;
+            waveBtn.SetActive(true);
+            wavePanel.SetActive(true);
+            healthPanel.SetActive(true);
+            currencyPanel.SetActive(true);
+            towersBtn.SetActive(true);
         }
         if (Input.GetMouseButton(1))
         {
             Hover.Instance.Deactivate();
             ClickedBtn = null;
+            waveBtn.SetActive(true);
+            wavePanel.SetActive(true);
+            healthPanel.SetActive(true);
+            currencyPanel.SetActive(true);
+            towersBtn.SetActive(true);
         }
     }
 
@@ -161,6 +176,8 @@ public class GameManager : Singleton<GameManager>
         wave++;
         waveText.text = string.Format("Wave: {0}", wave);
         StartCoroutine(SpawnWave());
+        pauseBtn.SetActive(true);
+        speedBtn.SetActive(true);
         waveBtn.SetActive(false);
         towersBtn.SetActive(false);
         TotalMonsters = wave*3;
@@ -213,6 +230,8 @@ public class GameManager : Singleton<GameManager>
     public void EndWave()
     {
         waveBtn.SetActive(true);
+        speedBtn.SetActive(false);
+        pauseBtn.SetActive(false);
         towersBtn.SetActive(true);
         gameAccelerated = false;
         this.speedBtn.GetComponent<Image>().sprite = speedBtnInactive;
@@ -224,6 +243,12 @@ public class GameManager : Singleton<GameManager>
         {
             gameOver = true;
             waveBtn.SetActive(false);
+            pauseBtn.SetActive(false);
+            speedBtn.SetActive(false);
+            towersBtn.SetActive(false);
+            wavePanel.SetActive(false);
+            healthPanel.SetActive(false);
+            currencyPanel.SetActive(false);
             gameOverUI.SetActive(true);
             GameSpeed = 0;
         }
@@ -261,6 +286,7 @@ public class GameManager : Singleton<GameManager>
         if (GameSpeed <= 1 && !gameAccelerated)
         {
             this.speedBtn.GetComponent<Image>().sprite = speedBtnActive;
+            this.pauseBtn.GetComponent<Image>().sprite = pauseBtnInactive;
             gameAccelerated = true;
             GameSpeed = gameSpeedAcc;
         } else
