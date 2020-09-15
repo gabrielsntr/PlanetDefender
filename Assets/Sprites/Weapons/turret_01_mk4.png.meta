@@ -1,7 +1,67 @@
 fileFormatVersion: 2
 guid: e915376d4477d0e4d8e7b581028c52a0
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1671824317947594055
+    second: turret_01_mk4_0
+  - first:
+      213: 1240236989283597271
+    second: turret_01_mk4_1
+  - first:
+      213: 8604361490488151542
+    second: turret_01_mk4_2
+  - first:
+      213: -6037869250690124174
+    second: turret_01_mk4_3
+  - first:
+      213: -9210836124323818116
+    second: turret_01_mk4_4
+  - first:
+      213: -4595530888493672874
+    second: turret_01_mk4_5
+  - first:
+      213: -3828073072018605602
+    second: turret_01_mk4_6
+  - first:
+      213: 3041303887727188049
+    second: turret_01_mk4_7
+  - first:
+      213: 9066013005078989283
+    second: turret_01_mk4_8
+  - first:
+      213: -844512558923705173
+    second: turret_01_mk4_9
+  - first:
+      213: -6134529123433084335
+    second: turret_01_mk4_10
+  - first:
+      213: 3132188866979960528
+    second: turret_01_mk4_11
+  - first:
+      213: 8488758025387075586
+    second: turret_01_mk4_12
+  - first:
+      213: -6427573439572605942
+    second: turret_01_mk4_13
+  - first:
+      213: 4674566974597663785
+    second: turret_01_mk4_14
+  - first:
+      213: 3791273511571080243
+    second: turret_01_mk4_15
+  - first:
+      213: -7550593191813431614
+    second: turret_01_mk4_16
+  - first:
+      213: 3638039104874095251
+    second: turret_01_mk4_17
+  - first:
+      213: -5746424504454085341
+    second: turret_01_mk4_18
+  - first:
+      213: 9036174673358546503
+    second: turret_01_mk4_19
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,12 +100,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 65
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,9 +131,441 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: turret_01_mk4_0
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 34
+        width: 42
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9babfd9f3ac7cc8e0800000000000000
+      internalID: -1671824317947594055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_1
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 116
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7db7c8f78f4363110800000000000000
+      internalID: 1240236989283597271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_2
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 114
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fdc89f0035d86770800000000000000
+      internalID: 8604361490488151542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_3
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 118
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2767c5018ed253ca0800000000000000
+      internalID: -6037869250690124174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_4
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 116
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c75d75598598c2080800000000000000
+      internalID: -9210836124323818116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_5
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 34
+        width: 43
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 656dffc41056930c0800000000000000
+      internalID: -4595530888493672874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_6
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 115
+        width: 4
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed9b710b2d3ffdac0800000000000000
+      internalID: -3828073072018605602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_7
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 107
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1585ef9b5c1e43a20800000000000000
+      internalID: 3041303887727188049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_8
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 108
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e90ec85bc2f0dd70800000000000000
+      internalID: 9066013005078989283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_9
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 110
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba41ff45d40b744f0800000000000000
+      internalID: -844512558923705173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_10
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 110
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a8b7da346cddaa0800000000000000
+      internalID: -6134529123433084335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_11
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 34
+        width: 42
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d616c1fd25c77b20800000000000000
+      internalID: 3132188866979960528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_12
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 34
+        width: 42
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 208617fd2702ec570800000000000000
+      internalID: 8488758025387075586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_13
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 107
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a040a8ee20cacc6a0800000000000000
+      internalID: -6427573439572605942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_14
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 109
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c8aaf75e56fd040800000000000000
+      internalID: 4674566974597663785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_15
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 109
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 334ca87fb2f4d9430800000000000000
+      internalID: 3791273511571080243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_16
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 34
+        width: 42
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ce3a7e2f77e63790800000000000000
+      internalID: -7550593191813431614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_17
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 34
+        width: 42
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 392200d6a49ec7230800000000000000
+      internalID: 3638039104874095251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_18
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 34
+        width: 42
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3250a6beb599040b0800000000000000
+      internalID: -5746424504454085341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turret_01_mk4_19
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 34
+        width: 42
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746eaed5df0f66d70800000000000000
+      internalID: 9036174673358546503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

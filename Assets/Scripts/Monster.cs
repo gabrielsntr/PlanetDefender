@@ -14,7 +14,7 @@ public class Monster : MonoBehaviour
 
     private Vector3 destination;
 
-    private bool IsActive { get; set; }
+    public bool IsActive { get; set; }
 
     private Animator animator;
 

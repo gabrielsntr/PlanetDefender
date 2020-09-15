@@ -20,6 +20,8 @@ public class TileScript : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
+    private Tower myTower;
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,8 +48,7 @@ public class TileScript : MonoBehaviour
 
     private void OnMouseOver()
     {
-        //!EventSystem.current.IsPointerOverGameObject() && 
-        if (GameManager.Instance.ClickedBtn != null)
+        if (!EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.ClickedBtn != null)
         {
             if (IsPath || IsEmpty)
             {
@@ -62,6 +63,19 @@ public class TileScript : MonoBehaviour
                 }
             }
         }
+        else if (!EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.ClickedBtn == null && Input.GetMouseButton(0))
+        {
+            
+
+            if (Input.GetMouseButtonDown(0) && myTower != null) 
+            {
+                GameManager.Instance.SelectTower(myTower);
+            }
+            if (Input.GetMouseButtonDown(0) && myTower == null)
+            {
+                GameManager.Instance.DeselectTower();
+            }
+        }
     }
 
     private void OnMouseExit()
@@ -71,10 +85,13 @@ public class TileScript : MonoBehaviour
 
     private void PlaceTower()
     {
-        Vector3 newPos = transform.position + new Vector3(1.85f, 1.45f, 0);
+        Vector3 newPos = transform.position + new Vector3(this.spriteRenderer.sprite.bounds.size.x/2, -this.spriteRenderer.sprite.bounds.size.y/2, 0);
         GameObject tower = (GameObject)Instantiate(GameManager.Instance.ClickedBtn.TowerPrefab, newPos, Quaternion.identity);
         tower.transform.SetParent(transform);
+        this.myTower = tower.transform.GetComponent<Tower>();
+        StartCoroutine(DiableRange(tower));
         GameManager.Instance.BuyTower();
+        GameManager.Instance.ClickedBtn = null;
         IsEmpty = true;
         ColorTile(Color.white);
     }
@@ -82,6 +99,20 @@ public class TileScript : MonoBehaviour
     private void ColorTile(Color newColor)
     {
         SpriteRenderer.color = newColor;
+    }
+
+    private IEnumerator DiableRange(GameObject tower)
+    {
+        Color towerColor = tower.transform.GetChild(2).GetComponent<SpriteRenderer>().color;
+        float alpha = tower.transform.GetChild(2).GetComponent<SpriteRenderer>().color.a;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime/1.5f)
+        {
+            Color newColor = new Color(towerColor.r, towerColor.g, towerColor.b, Mathf.Lerp(alpha, 0.0f, t));
+            tower.transform.GetChild(2).GetComponent<SpriteRenderer>().color = newColor;
+            yield return null;
+        }
+        tower.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
+        tower.transform.GetChild(2).GetComponent<SpriteRenderer>().color = towerColor;
     }
 
 }

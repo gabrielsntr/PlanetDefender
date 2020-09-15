@@ -7,11 +7,15 @@ using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField]
+    private Sprite speedBtnActive, speedBtnInactive, pauseBtnActive, pauseBtnInactive;
 
-    
+    [SerializeField]
+    private int gameSpeedAcc;
 
     private int wave = 0;
 
+    private bool gameAccelerated;
 
     private int lives;
 
@@ -57,7 +61,7 @@ public class GameManager : Singleton<GameManager>
     private GameObject towersBtn;
 
     [SerializeField]
-    private GameObject speedBtn;
+    private GameObject speedBtn, pauseBtn;
 
     private List<Monster> activeMonsters = new List<Monster>();
 
@@ -77,6 +81,13 @@ public class GameManager : Singleton<GameManager>
     private GameObject gameOverUI;
 
     public int TotalMonsters { get; set; }
+    public float GameSpeed 
+    { 
+        get => Time.timeScale; 
+        set => Time.timeScale = value; 
+    }
+
+    private Tower selectedTower;
 
     private void Awake()
     {
@@ -108,6 +119,7 @@ public class GameManager : Singleton<GameManager>
     {
         Currency -= ClickedBtn.Price;
         Hover.Instance.Deactivate();
+        ClickedBtn = null;
     }
 
     private void HandleEscape()
@@ -115,17 +127,42 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Hover.Instance.Deactivate();
+            ClickedBtn = null;
         }
+        if (Input.GetMouseButton(1))
+        {
+            Hover.Instance.Deactivate();
+            ClickedBtn = null;
+        }
+    }
+
+    public void SelectTower(Tower tower)
+    {
+        DeselectTower();
+        selectedTower = tower;
+        selectedTower.Select();
+    }
+
+    public void DeselectTower()
+    {
+        if (selectedTower != null)
+        {
+            //Calls select to deselect it
+            selectedTower.Select();
+        }
+
+        //Remove the reference to the tower
+        selectedTower = null;
     }
 
     public void StartWave()
     {
+        GameSpeed = 1f;
         wave++;
         waveText.text = string.Format("Wave: {0}", wave);
         StartCoroutine(SpawnWave());
         waveBtn.SetActive(false);
         towersBtn.SetActive(false);
-        speedBtn.SetActive(true);
         TotalMonsters = wave*3;
     }
 
@@ -177,7 +214,8 @@ public class GameManager : Singleton<GameManager>
     {
         waveBtn.SetActive(true);
         towersBtn.SetActive(true);
-        speedBtn.SetActive(false);
+        gameAccelerated = false;
+        this.speedBtn.GetComponent<Image>().sprite = speedBtnInactive;
     }
 
     public void GameOver()
@@ -187,7 +225,7 @@ public class GameManager : Singleton<GameManager>
             gameOver = true;
             waveBtn.SetActive(false);
             gameOverUI.SetActive(true);
-            Time.timeScale = 0;
+            GameSpeed = 0;
         }
     }
 
@@ -202,15 +240,34 @@ public class GameManager : Singleton<GameManager>
         Application.Quit();
     }
 
+    public void PauseGame()
+    {
+        if (GameSpeed > 0f)
+        {
+            gameAccelerated = false;
+            GameSpeed = 0;
+            this.pauseBtn.GetComponent<Image>().sprite = pauseBtnActive;
+            this.speedBtn.GetComponent<Image>().sprite = speedBtnInactive;
+        }
+        else
+        {
+            GameSpeed = 1;  
+            this.pauseBtn.GetComponent<Image>().sprite = pauseBtnInactive;
+        }
+    }
+
     public void SpeedGame()
     {
-        if (Time.timeScale == 1)
+        if (GameSpeed <= 1 && !gameAccelerated)
         {
-            Time.timeScale = 3;
+            this.speedBtn.GetComponent<Image>().sprite = speedBtnActive;
+            gameAccelerated = true;
+            GameSpeed = gameSpeedAcc;
         } else
         {
-            Time.timeScale = 1;
+            GameSpeed = 1;
+            gameAccelerated = false;
+            this.speedBtn.GetComponent<Image>().sprite = speedBtnInactive;
         }
-        
     }
 }

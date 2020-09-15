@@ -74,10 +74,15 @@
     <Compile Include="Assets\Scripts\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Point.cs" />
     <Compile Include="Assets\Scripts\Portal.cs" />
+    <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\Scripts\TileScript.cs" />
+    <Compile Include="Assets\Scripts\Tower.cs" />
     <Compile Include="Assets\Scripts\TowerBtn.cs" />
+    <Compile Include="Assets\Scripts\TowerRange.cs" />
     <None Include="Assets\Resources\Level.txt" />
+    <None Include="Assets\Sprites\Weapons\Projectiles\license.txt" />
+    <None Include="Assets\Sprites\Weapons\Projectiles\Spritesheet\sheet.xml" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
