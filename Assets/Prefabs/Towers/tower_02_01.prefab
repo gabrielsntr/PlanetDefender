@@ -130,7 +130,7 @@ MonoBehaviour:
   damage: 4
   projectileType: Laser
   projectileSpeed: 20
-  attackCooldown: 0.5
+  attackCooldown: 0.75
 --- !u!1 &559177920139607589
 GameObject:
   m_ObjectHideFlags: 0

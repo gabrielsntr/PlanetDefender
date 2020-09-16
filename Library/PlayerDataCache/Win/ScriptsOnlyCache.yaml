@@ -1,15 +1,21 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - BarScript
     - CameraMovement
+    - DeathBehaviour
     - GameManager
     - Hover
     - LevelManager
     - Monster
     - ObjectPool
     - Portal
+    - Projectile
     - TileScript
+    - Tower
     - TowerBtn
+    - TowerRange
+    - TowerUpgrade
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
@@ -20,19 +26,29 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
     - UnityEngine.UI.Outline
+    - UnityEngine.UI.Shadow
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
@@ -50,6 +66,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 58
+      Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
     - Class: 74
@@ -65,39 +85,59 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11150}
     - Class: 114
-      Script: {instanceID: 11172}
+      Script: {instanceID: 11152}
     - Class: 114
       Script: {instanceID: 11174}
     - Class: 114
-      Script: {instanceID: 11272}
+      Script: {instanceID: 11176}
     - Class: 114
-      Script: {instanceID: 11312}
+      Script: {instanceID: 11274}
     - Class: 114
-      Script: {instanceID: 11472}
+      Script: {instanceID: 11314}
     - Class: 114
-      Script: {instanceID: 11526}
+      Script: {instanceID: 11474}
     - Class: 114
-      Script: {instanceID: 11624}
+      Script: {instanceID: 11528}
     - Class: 114
-      Script: {instanceID: 11702}
+      Script: {instanceID: 11568}
     - Class: 114
-      Script: {instanceID: 12192}
+      Script: {instanceID: 11628}
     - Class: 114
-      Script: {instanceID: 12420}
+      Script: {instanceID: 11708}
     - Class: 114
-      Script: {instanceID: 12922}
+      Script: {instanceID: 12024}
     - Class: 114
-      Script: {instanceID: 13274}
+      Script: {instanceID: 12196}
     - Class: 114
-      Script: {instanceID: 13662}
+      Script: {instanceID: 12240}
     - Class: 114
-      Script: {instanceID: 14120}
+      Script: {instanceID: 12426}
     - Class: 114
-      Script: {instanceID: 14166}
+      Script: {instanceID: 12744}
     - Class: 114
-      Script: {instanceID: 14174}
+      Script: {instanceID: 12930}
     - Class: 114
-      Script: {instanceID: 14276}
+      Script: {instanceID: 13282}
+    - Class: 114
+      Script: {instanceID: 13486}
+    - Class: 114
+      Script: {instanceID: 13596}
+    - Class: 114
+      Script: {instanceID: 13674}
+    - Class: 114
+      Script: {instanceID: 14132}
+    - Class: 114
+      Script: {instanceID: 14178}
+    - Class: 114
+      Script: {instanceID: 14186}
+    - Class: 114
+      Script: {instanceID: 14220}
+    - Class: 114
+      Script: {instanceID: 14234}
+    - Class: 114
+      Script: {instanceID: 14290}
+    - Class: 114
+      Script: {instanceID: 14332}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -119,13 +159,19 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
+      Hash: caa533b001ae39b864ba8425019e2268
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Shadow
+  - hash:
+      serializedVersion: 2
       Hash: 5f1752ed2092162f016c19510c28a8b9
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Button
   - hash:
       serializedVersion: 2
-      Hash: afc5b93a7b192de2dcb3832fe35a5c7e
+      Hash: d172b04e66e87b6fd90436887f8eba1a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Monster
@@ -161,7 +207,7 @@ ScriptsOnlyBuild:
     className: Hover
   - hash:
       serializedVersion: 2
-      Hash: 93fdb7ed0eb5ceb21b8ee56536898431
+      Hash: cb043d23439e2fa762f7113f4a293e63
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -231,6 +277,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.SpriteShape.Runtime.dll
     namespaceName: UnityEngine.U2D
     className: SpriteShapeController
+  - hash:
+      serializedVersion: 2
+      Hash: f2015e2ce6b0f7c2696beed14930f969
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Tower
   - hash:
       serializedVersion: 2
       Hash: 234d407605354852c48e57df17c9a1c6
@@ -335,12 +387,6 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: caa533b001ae39b864ba8425019e2268
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Shadow
-  - hash:
-      serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -365,6 +411,12 @@ ScriptsOnlyBuild:
     className: SpriteShape
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Projectile
+  - hash:
+      serializedVersion: 2
       Hash: 5cc439bf63c0539d39588e69465ac2ab
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -383,7 +435,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 80eedb56d5cfa16af92e5a514b5be998
+      Hash: cd9393c45ae850b87753c5019cf789ad
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TowerBtn
@@ -417,6 +469,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: 6db66b98086fbec2ed757e4d037aaef1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BarScript
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -515,10 +573,22 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DeathBehaviour
+  - hash:
+      serializedVersion: 2
       Hash: 6939772cb3ce775a8e8d99f332534491
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: eb0bf1e9ab68fc9a71d4ee938836fb17
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TowerRange
   - hash:
       serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
@@ -603,6 +673,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMesh
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TowerUpgrade
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f

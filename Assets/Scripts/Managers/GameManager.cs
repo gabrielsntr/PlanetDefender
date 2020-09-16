@@ -22,7 +22,7 @@ public class GameManager : Singleton<GameManager>
     private Text waveText, sellText, upgradeText, currencyText, livesText;
 
     [SerializeField]
-    private GameObject speedBtn, pauseBtn, towersBtn, waveBtn, wavePanel, currencyPanel, healthPanel, upgradePanel, statsPanel, gameOverUI;
+    private GameObject menuBtn, speedBtn, pauseBtn, towersBtn, waveBtn, wavePanel, currencyPanel, healthPanel, upgradePanel, statsPanel, pauseMenuPanel, gameOverUI, optionsMenuPanel;
 
     private List<Monster> activeMonsters = new List<Monster>();
 
@@ -78,6 +78,8 @@ public class GameManager : Singleton<GameManager>
     }
     public Tower SelectedTower { get => selectedTower; set => selectedTower = value; }
 
+    public int MonstersKilled { get; set; }
+
     private void Awake()
     {
         Pool = GetComponent<ObjectPool>();
@@ -85,6 +87,8 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
+        upgradePanel.SetActive(false);
+        MonstersKilled = 0;
         Lives = 10;
         Currency = 100;
         WaveOver = true;
@@ -158,6 +162,7 @@ public class GameManager : Singleton<GameManager>
             towersBtn.SetActive(false);
             waveBtn.SetActive(false);
             upgradePanel.SetActive(false);
+            menuBtn.SetActive(false);
         }
     }
 
@@ -171,6 +176,7 @@ public class GameManager : Singleton<GameManager>
         currencyPanel.SetActive(true);
         towersBtn.SetActive(true);
         waveBtn.SetActive(true);
+        menuBtn.SetActive(true);
     }
 
     public void UpgradeTower()
@@ -196,13 +202,19 @@ public class GameManager : Singleton<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Hover.Instance.Deactivate();
-            ClickedBtn = null;
-            waveBtn.SetActive(true);
-            wavePanel.SetActive(true);
-            healthPanel.SetActive(true);
-            currencyPanel.SetActive(true);
-            towersBtn.SetActive(true);
+            if (ClickedBtn != null)
+            {
+                Hover.Instance.Deactivate();
+                ClickedBtn = null;
+                waveBtn.SetActive(true);
+                wavePanel.SetActive(true);
+                healthPanel.SetActive(true);
+                currencyPanel.SetActive(true);
+                towersBtn.SetActive(true);
+            } else
+            {
+                PauseMenu();
+            }
         }
         if (Input.GetMouseButton(1))
         {
@@ -311,8 +323,11 @@ public class GameManager : Singleton<GameManager>
             wavePanel.SetActive(false);
             healthPanel.SetActive(false);
             currencyPanel.SetActive(false);
+            gameOverUI.transform.Find("WaveTxt").GetComponent<Text>().text = wave.ToString();
+            gameOverUI.transform.Find("MonstersKilledTxt").GetComponent<Text>().text = MonstersKilled.ToString();
             gameOverUI.SetActive(true);
             GameSpeed = 0;
+            
         }
     }
 
@@ -408,5 +423,42 @@ public class GameManager : Singleton<GameManager>
         child.transform.Find("NameLbl").GetComponent<Text>().text = selected.transform.GetComponent<Tower>().TurretName;
     }
 
+    public void PauseMenu()
+    {
+        if (!pauseMenuPanel.gameObject.activeSelf)
+        {
+            GameSpeed = 0;
+            pauseMenuPanel.SetActive(true);
+            menuBtn.SetActive(false);
+            waveBtn.SetActive(false);
+            pauseBtn.SetActive(false);
+            speedBtn.SetActive(false);
+            towersBtn.SetActive(false);
+        } 
+        else {
+            GameSpeed = 1;
+            menuBtn.SetActive(true);
+            pauseMenuPanel.SetActive(false);
+            if (WaveOver)
+            {
+                waveBtn.SetActive(true);
+                towersBtn.SetActive(true);
+            }
+            else
+            {
+                pauseBtn.SetActive(true);
+                speedBtn.SetActive(true);
+                this.pauseBtn.GetComponent<Image>().sprite = pauseBtnInactive;
+                this.speedBtn.GetComponent<Image>().sprite = speedBtnInactive;
+            }
+        }
+    }
+
+    public void ShowOptions()
+    {
+
+        optionsMenuPanel.SetActive(!optionsMenuPanel.activeSelf);
+
+    }
 
 }

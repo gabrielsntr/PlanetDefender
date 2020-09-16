@@ -1,2 +1,38 @@
 Base path: 'C:/Program Files/Unity/Hub/Editor/2019.4.9f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2019.4.9f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
+Cmd: compileComputeKernel
+  error: 1 plat 4 at SoftEffectsCompute.compute(674): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(722): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(769): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(817): implicit truncation of vector type
+  api=4 insize=106449 outsize=846 ok=1
+Cmd: compileComputeKernel
+  error: 1 plat 4 at SoftEffectsCompute.compute(674): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(722): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(769): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(817): implicit truncation of vector type
+  api=4 insize=106449 outsize=1746 ok=1
+Cmd: compileComputeKernel
+  error: 1 plat 4 at SoftEffectsCompute.compute(674): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(722): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(769): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(817): implicit truncation of vector type
+  api=4 insize=106449 outsize=2725 ok=1
+Cmd: compileComputeKernel
+  error: 1 plat 4 at SoftEffectsCompute.compute(674): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(722): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(769): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(817): implicit truncation of vector type
+  api=4 insize=106449 outsize=1478 ok=1
+Cmd: compileComputeKernel
+  error: 1 plat 4 at SoftEffectsCompute.compute(674): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(722): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(769): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(817): implicit truncation of vector type
+  api=4 insize=106449 outsize=1515 ok=1
+Cmd: compileComputeKernel
+  error: 1 plat 4 at SoftEffectsCompute.compute(674): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(722): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(769): implicit truncation of vector type
+  error: 1 plat 4 at SoftEffectsCompute.compute(817): implicit truncation of vector type
+  api=4 insize=106449 outsize=1293 ok=1

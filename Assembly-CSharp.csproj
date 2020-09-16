@@ -63,16 +63,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DeathBehaviour.cs" />
     <Compile Include="Assets\Scripts\AStar\AStar.cs" />
     <Compile Include="Assets\Scripts\AStar\AStarDebug.cs" />
     <Compile Include="Assets\Scripts\AStar\Node.cs" />
     <Compile Include="Assets\Scripts\Managers\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\MainMenuManager.cs" />
     <Compile Include="Assets\Scripts\Monsters\BarScript.cs" />
     <Compile Include="Assets\Scripts\Monsters\Monster.cs" />
     <Compile Include="Assets\Scripts\Monsters\Stat.cs" />
+    <Compile Include="Assets\Scripts\Other\DeathBehaviour.cs" />
     <Compile Include="Assets\Scripts\Other\Portal.cs" />
     <Compile Include="Assets\Scripts\Other\Projectile.cs" />
     <Compile Include="Assets\Scripts\Tiles\TileScript.cs" />
