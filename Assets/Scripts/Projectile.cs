@@ -42,4 +42,17 @@ public class Projectile : MonoBehaviour
             GameManager.Instance.Pool.ReleaseObject(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Monster")
+        {
+            if (target.gameObject == other.gameObject)
+            {
+                target.TakeDamage(parent.Damage);
+                Monster hitInfo = other.GetComponent<Monster>();
+                GameManager.Instance.Pool.ReleaseObject(gameObject);
+            }
+        }
+    }
 }

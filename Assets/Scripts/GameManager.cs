@@ -5,19 +5,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+public delegate void CurrencyChanged();
+
 public class GameManager : Singleton<GameManager>
 {
+
+    public event CurrencyChanged Changed;
+
     [SerializeField]
     private Sprite speedBtnActive, speedBtnInactive, pauseBtnActive, pauseBtnInactive;
 
     [SerializeField]
     private int gameSpeedAcc;
 
-    private int wave = 0;
+    private float speed;
+
+    private int wave = 0, lives, health;
 
     private bool gameAccelerated;
-
-    private int lives;
 
     [SerializeField]
     private Text livesText;
@@ -48,15 +53,18 @@ public class GameManager : Singleton<GameManager>
         {
             this.currency = value;
             this.currencyText.text = value.ToString();
+            OnCurrencyChanged();
         }
     }
 
     [SerializeField]
     private Text waveText;
 
+    [SerializeField]
+    private GameObject speedBtn, pauseBtn, towersBtn, waveBtn, wavePanel, currencyPanel, healthPanel, upgradePanel, statsPanel;
 
     [SerializeField]
-    private GameObject speedBtn, pauseBtn, towersBtn, waveBtn, wavePanel, currencyPanel, healthPanel;
+    private Text sellText;
 
     private List<Monster> activeMonsters = new List<Monster>();
 
@@ -92,7 +100,8 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         Lives = 10;
-        Currency = 5;
+        Currency = 100;
+        WaveOver = true;
     }
 
     // Update is called once per frame
@@ -105,6 +114,8 @@ public class GameManager : Singleton<GameManager>
     {
         if (Currency >= towerBtn.Price)
         {
+            HideStats();
+            DeselectTower();
             ClickedBtn = towerBtn;
             Hover.Instance.Activate(towerBtn.Sprite);
             wavePanel.SetActive(false);
@@ -112,6 +123,7 @@ public class GameManager : Singleton<GameManager>
             currencyPanel.SetActive(false);
             towersBtn.SetActive(false);
             waveBtn.SetActive(false);
+            upgradePanel.SetActive(false);
         }
     }
 
@@ -125,6 +137,14 @@ public class GameManager : Singleton<GameManager>
         currencyPanel.SetActive(true);
         towersBtn.SetActive(true);
         waveBtn.SetActive(true);
+    }
+
+    public void OnCurrencyChanged()
+    {
+        if (Changed != null)
+        {
+            Changed();
+        }
     }
 
     private void HandleEscape()
@@ -155,7 +175,14 @@ public class GameManager : Singleton<GameManager>
     {
         DeselectTower();
         selectedTower = tower;
+        SetToolTipText(selectedTower);
+        ShowStats();
         selectedTower.Select();
+        sellText.text = "+" + Convert.ToInt32(tower.Price/2);
+        if (WaveOver)
+        {
+            upgradePanel.SetActive(true);
+        }
     }
 
     public void DeselectTower()
@@ -163,15 +190,17 @@ public class GameManager : Singleton<GameManager>
         if (selectedTower != null)
         {
             //Calls select to deselect it
-            selectedTower.Select();
+            selectedTower.Deselect();
         }
-
+        HideStats();
+        upgradePanel.SetActive(false);
         //Remove the reference to the tower
         selectedTower = null;
     }
 
     public void StartWave()
     {
+        WaveOver = false;
         GameSpeed = 1f;
         wave++;
         waveText.text = string.Format("Wave: {0}", wave);
@@ -180,6 +209,7 @@ public class GameManager : Singleton<GameManager>
         speedBtn.SetActive(true);
         waveBtn.SetActive(false);
         towersBtn.SetActive(false);
+        upgradePanel.SetActive(false);
         TotalMonsters = wave*3;
     }
 
@@ -210,7 +240,15 @@ public class GameManager : Singleton<GameManager>
             }
 
             Monster monster = Pool.GetObject(type).GetComponent<Monster>();
-            monster.Spawn();
+            this.health = monster.Health;
+            this.speed = monster.Speed;
+            //Debug.Log("Wave: " + wave + ", type: " + type + ", health: " + health + ", speed: " + speed);
+            if (wave % 2 == 0)
+            {
+                this.speed += speed * 0.1f;
+                this.health += Convert.ToInt32(health * 0.5);
+            }
+            monster.Spawn(health, speed);
             activeMonsters.Add(monster);
             yield return new WaitForSeconds(1.5f);
         }
@@ -222,19 +260,22 @@ public class GameManager : Singleton<GameManager>
         
         activeMonsters.Remove(monster);
         TotalMonsters--;
-        if (activeMonsters.Count <= 0 && TotalMonsters <= 0) {
+        if (TotalMonsters <= 0) {
             EndWave();
         }
     }
 
     public void EndWave()
     {
+        WaveOver = true;
         waveBtn.SetActive(true);
         speedBtn.SetActive(false);
         pauseBtn.SetActive(false);
         towersBtn.SetActive(true);
+        GameSpeed = 1;
         gameAccelerated = false;
         this.speedBtn.GetComponent<Image>().sprite = speedBtnInactive;
+        this.Currency += wave*5; 
     }
 
     public void GameOver()
@@ -295,5 +336,43 @@ public class GameManager : Singleton<GameManager>
             gameAccelerated = false;
             this.speedBtn.GetComponent<Image>().sprite = speedBtnInactive;
         }
+    }
+
+    public void SellTower()
+    {
+        if (selectedTower != null)
+        {
+            Currency += Convert.ToInt32(selectedTower.Price / 2);
+            selectedTower.GetComponentInParent<TileScript>().IsEmpty = true;
+            Destroy(selectedTower.transform.gameObject);
+            DeselectTower();
+        }
+    }
+
+    public void ShowStatsHover()
+    {
+        statsPanel.SetActive(!statsPanel.activeSelf);
+    }
+
+    public void ShowStats()
+    {
+        statsPanel.SetActive(true);
+    }
+
+    public void HideStats()
+    {
+        statsPanel.SetActive(false);
+    }
+
+    public void SetToolTipText(Tower selected)
+    {
+        GameObject child = statsPanel.transform.GetChild(0).gameObject;
+        TowerRange values = selected.transform.Find("Range").GetComponent<TowerRange>();
+        child.transform.Find("DamageTxt").GetComponent<Text>().text = values.Damage.ToString();
+        child.transform.Find("AttackSpeedTxt").GetComponent<Text>().text = values.ProjectileSpeed.ToString();
+        child.transform.Find("CooldownTxt").GetComponent<Text>().text = values.AttackCooldown.ToString();
+        child.transform.Find("PriceTxt").GetComponent<Text>().text = selected.Price.ToString();
+        child.transform.Find("ProjectileTxt").GetComponent<Text>().text = values.ProjectileType;
+        child.transform.Find("NameLbl").GetComponent<Text>().text = selected.transform.GetComponent<Tower>().TurretName;
     }
 }

@@ -8,15 +8,42 @@ public class Monster : MonoBehaviour
 {
     [SerializeField]
     private float speed;
+
+    public float Speed { get => speed; set => speed = value; }
+
     private Stack<Node> path;
+
+    [SerializeField]
+    private Stat healthStat;
+
+    [SerializeField]
+    private int health;
+    public int Health { get => health; set => health = value; }
+
+    public bool Alive
+    {
+        get => healthStat.CurrentValue > 0;
+    }
+
+    private int distanceToEndPoint;
+
+    public int DistanceToEndPoint { get => distanceToEndPoint; }
 
     public Point GridPosition{ get; set; }
 
     private Vector3 destination;
 
     public bool IsActive { get; set; }
+    
 
     private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        healthStat.Initialize();
+    }
+
 
     private void Update()
     {
@@ -26,13 +53,24 @@ public class Monster : MonoBehaviour
         }
     }
 
-    public void Spawn()
+    public void Spawn(int health, float speed)
     {
-        animator = GetComponent<Animator>();
+        GetComponent<SpriteRenderer>().sortingOrder = 1;
+        GetComponent<Animator>().enabled = true;
         IsActive = false;
+        Speed = speed;
+        Health = health;
+        this.healthStat.Bar.Reset();
+        this.healthStat.MaxVal = Health;
+        this.healthStat.CurrentValue = this.healthStat.MaxVal;
+        
+        //Debug.Log("Health max: " + this.healthStat.MaxVal + ", health current: " + this.healthStat.CurrentValue);
+        
         Vector3 portalPosition = LevelManager.Instance.RedPortal.transform.position;
         transform.position = new Vector3(portalPosition.x + 0.55f, portalPosition.y - 1.5f, -1);
+        
         StartCoroutine(Scale(new Vector3(0.1f, 0.1f), new Vector3(1, 1)));
+        
         SetPath(LevelManager.Instance.Path);
     }
 
@@ -54,7 +92,7 @@ public class Monster : MonoBehaviour
     {
 
         Vector3 destination2 = new Vector3(destination.x + 0.65f, destination.y - 1.2f);
-        transform.position = Vector2.MoveTowards(transform.position, destination2, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, destination2, Speed * Time.deltaTime);
         
         if (transform.position == destination2)
         {
@@ -68,6 +106,7 @@ public class Monster : MonoBehaviour
             {
                 EndPath();
             }
+
         }
     }
 
@@ -120,15 +159,34 @@ public class Monster : MonoBehaviour
     private void EndPath()
     {
         Release();
+        GameManager.Instance.Lives--;
     }
 
-    private void Release()
+    public void Release()
     {
-        IsActive = false;
         GameManager.Instance.Pool.ReleaseObject(gameObject);
         GridPosition = LevelManager.Instance.StartPath;
         GameManager.Instance.RemoveMonster(this);
-        GameManager.Instance.Lives--;
     }
-    
+
+    public void TakeDamage(int damage)
+    {
+        if (IsActive)
+        {
+            this.healthStat.CurrentValue -= damage;
+            if (this.healthStat.CurrentValue <= 0)
+            {
+                KillMonster();
+                animator.SetTrigger("Death");
+            }
+        }
+    }
+
+    public void KillMonster()
+    {
+        IsActive = false;
+        GetComponent<SpriteRenderer>().sortingOrder--;
+        GameManager.Instance.Currency += 2;
+    }
+
 }

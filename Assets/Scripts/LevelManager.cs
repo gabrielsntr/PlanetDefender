@@ -16,12 +16,11 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField]
     private CameraMovement cameraMovement;
 
-
     public Point StartPath { get; set; }
     public Point EndPath { get; set; }
 
     private Stack<Node> path;
-
+    
     public Stack<Node> Path 
     {
         get

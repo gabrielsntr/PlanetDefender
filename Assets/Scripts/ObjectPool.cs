@@ -7,7 +7,10 @@ public class ObjectPool : MonoBehaviour
     [SerializeField]
     private GameObject[] objectPrefabs;
 
+
     private List<GameObject> pooledObjects = new List<GameObject>();
+
+    public GameObject[] ObjectPrefabs { get => objectPrefabs; set => objectPrefabs = value; }
 
     public GameObject GetObject(string type)
     {
@@ -19,7 +22,7 @@ public class ObjectPool : MonoBehaviour
                 return go;
             }
         }
-        foreach (GameObject gameObject in objectPrefabs)
+        foreach (GameObject gameObject in ObjectPrefabs)
         {
             if (gameObject.name == type)
             {

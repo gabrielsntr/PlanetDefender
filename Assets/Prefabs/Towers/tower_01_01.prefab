@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 542815992}
   - component: {fileID: 6458999145533829546}
   - component: {fileID: 2433692267509715459}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,8 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bccb6ffbc91ab224bafb35d950145660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
   projectileType: Bullet
-  projectileSpeed: 15
+  projectileSpeed: 30
   attackCooldown: 1.5
 --- !u!1 &8202675555178459540
 GameObject:
@@ -200,7 +201,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 211c1b81a2ab7bb41bb6ecbb2cae7804, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -359,3 +360,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c56402f51cd8e4b99877bd864296fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretName: Bullet Tower Lvl. 1
+  price: 35

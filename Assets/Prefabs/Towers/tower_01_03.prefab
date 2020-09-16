@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1677462082}
   - component: {fileID: 217094449529609544}
   - component: {fileID: 3598183492403538560}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,8 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bccb6ffbc91ab224bafb35d950145660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 15
   projectileType: Bullet
-  projectileSpeed: 15
+  projectileSpeed: 30
   attackCooldown: 0.5
 --- !u!1 &6018483822436668068
 GameObject:
@@ -258,6 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c56402f51cd8e4b99877bd864296fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretName: Bullet Tower Lvl. 3
+  price: 60
 --- !u!1 &6018483823074214843
 GameObject:
   m_ObjectHideFlags: 0

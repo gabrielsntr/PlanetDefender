@@ -5,6 +5,16 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     private SpriteRenderer baseSpriteRenderer, turretSpriteRenderer, rangeSpriteRenderer;
+
+    [SerializeField]
+    private string turretName;
+
+    [SerializeField]
+    private int price;
+
+    public int Price { get => price; set => price = value; }
+    public string TurretName { get => turretName; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +30,12 @@ public class Tower : MonoBehaviour
 
     public void Select()
     {
-        rangeSpriteRenderer.enabled = !rangeSpriteRenderer.enabled;
+        rangeSpriteRenderer.enabled = true;
+    }
+
+    public void Deselect()
+    {
+        rangeSpriteRenderer.enabled = false;
     }
 
 }

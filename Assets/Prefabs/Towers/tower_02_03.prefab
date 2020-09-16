@@ -127,8 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bccb6ffbc91ab224bafb35d950145660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileType: Laser2
-  projectileSpeed: 15
+  damage: 16
+  projectileType: LaserBeam
+  projectileSpeed: 20
   attackCooldown: 0.25
 --- !u!1 &6644478012766508320
 GameObject:
@@ -141,7 +142,7 @@ GameObject:
   - component: {fileID: 6644478012766508322}
   - component: {fileID: 6644478012766508323}
   - component: {fileID: 5071158238349682602}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: turret_02_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,6 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c56402f51cd8e4b99877bd864296fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretName: Laser Tower Lvl. 3
+  price: 120
 --- !u!1 &8129414126623760202
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TowerRange : MonoBehaviour
@@ -9,7 +10,11 @@ public class TowerRange : MonoBehaviour
 
     private Animator animator;
 
+    [SerializeField]
+    private int damage;
+
     private Monster target;
+
     public Monster Target { get => target; }
 
     [SerializeField]
@@ -19,8 +24,15 @@ public class TowerRange : MonoBehaviour
     private float projectileSpeed;
 
     public float ProjectileSpeed { get => projectileSpeed; }
+    
+    
+    public int Damage { get => damage; }
+    public float AttackCooldown { get => attackCooldown; }
+    public string ProjectileType { get => projectileType; }
 
-    private Queue<Monster> monsters = new Queue<Monster>();
+    //private Queue<Monster> monsters = new Queue<Monster>();
+
+    private List<Monster> monsters = new List<Monster>();
 
     private bool canAttack = true;
 
@@ -46,30 +58,27 @@ public class TowerRange : MonoBehaviour
 
     private void Attack()
     {
-        if (!canAttack)
-        {
-            attackTimer += Time.deltaTime;
-
-            if (attackTimer >= attackCooldown)
-            {
-                canAttack = true;
-                attackTimer = 0;
-            }
-        }
-        if (target == null && monsters.Count > 0)
-        {
-            target = monsters.Dequeue();
-        }
-        if (target != null && target.IsActive)
+        target = FindClosestMonsterToEnd();
+        TurretTurn();
+        if (target != null)
         {
             if (canAttack)
             {
-                TurretTurn();
+
                 animator.SetTrigger("Attack");
                 Shoot();
                 canAttack = false;
             }
-            
+        }
+        if (!canAttack)
+        {
+            attackTimer += Time.deltaTime;
+
+            if (attackTimer >= AttackCooldown)
+            {
+                canAttack = true;
+                attackTimer = 0;
+            }
         }
     }
 
@@ -80,32 +89,61 @@ public class TowerRange : MonoBehaviour
         projectile.Initialize(this);
     }
 
-    public void OnTriggerEnter2D(Collider2D collider)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if (collider.tag == "Monster")
+        if (other.tag == "Monster")
         {
-            monsters.Enqueue(collider.GetComponent<Monster>());
+            //monsters.Enqueue(other.GetComponent<Monster>());
+            monsters.Add(other.GetComponent<Monster>());
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collider)
+    public void OnTriggerExit2D(Collider2D other)
     {
-        if (collider.tag == "Monster")
+        if (other.tag == "Monster")
         {
-            target = null;
+            monsters.Remove(other.GetComponent<Monster>());
+            GameObject go = other.gameObject;
+            if (go.activeInHierarchy)
+            {
+                //target = null;
+                monsters.Remove(other.GetComponent<Monster>());
+            }
         }
     }
 
     public void TurretTurn()
     {
-        GameObject turret = parent.transform.GetChild(1).gameObject;
-
-        Vector2 direction = new Vector2(
-        target.transform.position.x - turret.transform.position.x,
-        target.transform.position.y - turret.transform.position.y
-        );
-
-        turret.transform.up = direction;
-
+        if (target != null)
+        {
+            GameObject turret = parent.transform.GetChild(1).gameObject;
+            Vector2 direction = new Vector2(
+            target.transform.position.x - turret.transform.position.x,
+            target.transform.position.y - turret.transform.position.y
+            );
+            turret.transform.up = direction;
+        }
     }
+
+    private Monster FindClosestMonsterToEnd()
+    {
+        float distanceToClosest = Mathf.Infinity;
+        Monster target = null;
+        foreach (Monster monster in monsters)
+        {
+            if (monster.IsActive && monster.Alive)
+            {
+                float distanceToMonster = Vector2.Distance(
+                    new Vector2(monster.transform.position.x, monster.transform.position.y),
+                    new Vector2(LevelManager.Instance.EndPath.X, LevelManager.Instance.EndPath.Y));
+                if (distanceToMonster < distanceToClosest)
+                {
+                    distanceToClosest = distanceToMonster;
+                    target = monster;
+                }
+            }
+        }
+        return target;
+    }
+
 }

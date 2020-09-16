@@ -47,7 +47,6 @@ public static class AStar
                         neighbourPos != currentNode.GridPosition)
                     {
                         int gCost = 0;
-
                         if (Math.Abs(x - y) == 1)
                         {
                             gCost = 10;
