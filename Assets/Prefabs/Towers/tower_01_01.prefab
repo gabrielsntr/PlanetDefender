@@ -360,5 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c56402f51cd8e4b99877bd864296fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLevelTower: {fileID: 6442195117465226525, guid: eed21671bbee3ad4ab1c024fa5825423,
+    type: 3}
   turretName: Bullet Tower Lvl. 1
   price: 35

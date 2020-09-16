@@ -177,6 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c56402f51cd8e4b99877bd864296fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLevelTower: {fileID: 3557319332972959444, guid: f37285e3f12078f459166bfd16e26ebc,
+    type: 3}
   turretName: Laser Tower Lvl. 1
   price: 70
 --- !u!1 &559177920417213417
