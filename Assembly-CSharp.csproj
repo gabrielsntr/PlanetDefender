@@ -70,6 +70,8 @@
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Managers\MainMenuManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Monsters\BarScript.cs" />
     <Compile Include="Assets\Scripts\Monsters\Monster.cs" />
     <Compile Include="Assets\Scripts\Monsters\Stat.cs" />
@@ -82,11 +84,13 @@
     <Compile Include="Assets\Scripts\Towers\TowerRange.cs" />
     <Compile Include="Assets\Scripts\Towers\TowerUpgrade.cs" />
     <Compile Include="Assets\Scripts\Utils\Hover.cs" />
+    <Compile Include="Assets\Scripts\Utils\LevelSelected.cs" />
     <Compile Include="Assets\Scripts\Utils\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Utils\Point.cs" />
     <Compile Include="Assets\Scripts\Utils\Singleton.cs" />
-    <None Include="Assets\Resources\Level.txt" />
+    <None Include="Assets\Resources\Level2.txt" />
     <None Include="Assets\Sprites\Weapons\Projectiles\license.txt" />
+    <None Include="Assets\Resources\Level1.txt" />
     <None Include="Assets\Sprites\Weapons\Projectiles\Spritesheet\sheet.xml" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

@@ -22,7 +22,10 @@ public class GameManager : Singleton<GameManager>
     private Text waveText, sellText, upgradeText, currencyText, livesText;
 
     [SerializeField]
-    private GameObject menuBtn, speedBtn, pauseBtn, towersBtn, waveBtn, wavePanel, currencyPanel, healthPanel, upgradePanel, statsPanel, pauseMenuPanel, gameOverUI, optionsMenuPanel;
+    private GameObject menuBtn, speedBtn, pauseBtn, towersBtn, waveBtn, 
+        wavePanel, currencyPanel, healthPanel, upgradePanel, statsPanel, 
+        pauseMenuPanel, gameOverUI, optionsMenuPanel, sellMenu, exitMenu, 
+        restartMenu, victoryPanel;
 
     private List<Monster> activeMonsters = new List<Monster>();
 
@@ -73,8 +76,28 @@ public class GameManager : Singleton<GameManager>
     public int TotalMonsters { get; set; }
     public float GameSpeed 
     { 
-        get => Time.timeScale; 
-        set => Time.timeScale = value; 
+        get => Time.timeScale;
+        set
+        {
+            Time.timeScale = value;
+            if (value == 0)
+            {
+                this.pauseBtn.GetComponent<Image>().sprite = pauseBtnActive;
+                this.speedBtn.GetComponent<Image>().sprite = speedBtnInactive;
+            }
+            else
+            {
+                if (value == 1)
+                {
+                    this.pauseBtn.GetComponent<Image>().sprite = pauseBtnInactive;
+                    this.speedBtn.GetComponent<Image>().sprite = speedBtnInactive;
+                }
+                else
+                {
+                    this.speedBtn.GetComponent<Image>().sprite = speedBtnActive;
+                }
+            }
+        }
     }
     public Tower SelectedTower { get => selectedTower; set => selectedTower = value; }
 
@@ -152,6 +175,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (Currency >= towerBtn.Price)
         {
+            SoundManager.Instance.PlayEffect("menubutton");
             HideStats();
             DeselectTower();
             ClickedBtn = towerBtn;
@@ -168,6 +192,7 @@ public class GameManager : Singleton<GameManager>
 
     public void BuyTower(int price)
     {
+        SoundManager.Instance.PlayEffect("tower_emplacement");
         Currency -= price;
         Hover.Instance.Deactivate();
         ClickedBtn = null;
@@ -185,6 +210,7 @@ public class GameManager : Singleton<GameManager>
         {
             if (Currency >= SelectedTower.Price)
             {
+                SoundManager.Instance.PlayEffect("menubutton");
                 SelectedTower.GetComponentInParent<TileScript>().UpgradeTower();
             }
         }
@@ -232,10 +258,11 @@ public class GameManager : Singleton<GameManager>
 
     public void StartWave()
     {
+        SoundManager.Instance.PlayEffect("menubutton");
         WaveOver = false;
         GameSpeed = 1f;
         wave++;
-        waveText.text = string.Format("Wave: {0}", wave);
+        waveText.text = string.Format("Wave: {0}/40", wave);
         StartCoroutine(SpawnWave());
         pauseBtn.SetActive(true);
         speedBtn.SetActive(true);
@@ -300,6 +327,10 @@ public class GameManager : Singleton<GameManager>
 
     public void EndWave()
     {
+        if (wave == 40)
+        {
+            GameWon();
+        }
         WaveOver = true;
         waveBtn.SetActive(true);
         speedBtn.SetActive(false);
@@ -307,8 +338,7 @@ public class GameManager : Singleton<GameManager>
         towersBtn.SetActive(true);
         GameSpeed = 1;
         gameAccelerated = false;
-        this.speedBtn.GetComponent<Image>().sprite = speedBtnInactive;
-        this.Currency += wave*5; 
+        this.Currency += wave*5;
     }
 
     public void GameOver()
@@ -331,58 +361,108 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public void GameWon()
+    {
+            SoundManager.Instance.PlayEffect("victory");
+            waveBtn.SetActive(false);
+            pauseBtn.SetActive(false);
+            speedBtn.SetActive(false);
+            towersBtn.SetActive(false);
+            victoryPanel.transform.Find("WaveTxt").GetComponent<Text>().text = wave.ToString();
+            victoryPanel.transform.Find("MonstersKilledTxt").GetComponent<Text>().text = MonstersKilled.ToString();
+            victoryPanel.SetActive(true);
+            GameSpeed = 0;
+    }
+
+    public void ContinuePlaying()
+    {
+        SoundManager.Instance.PlayEffect("menubutton");
+        waveBtn.SetActive(true);
+        pauseBtn.SetActive(true);
+        speedBtn.SetActive(true);
+        towersBtn.SetActive(true);
+        victoryPanel.SetActive(false);
+        GameSpeed = 1;
+    }
+
     public void Restart()
     {
+        SoundManager.Instance.PlayEffect("menubutton");
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        RestartWindow();
+    }
+
+    public void RestartWindow()
+    {
+        SoundManager.Instance.PlayEffect("menubutton");
+        restartMenu.SetActive(!restartMenu.activeSelf);
+    }
+
+    public void QuitWindow()
+    {
+        SoundManager.Instance.PlayEffect("menubutton");
+        exitMenu.SetActive(!exitMenu.activeSelf);
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        SoundManager.Instance.PlayEffect("menubutton");
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
     }
 
     public void PauseGame()
     {
+        SoundManager.Instance.PlayEffect("menubutton");
         if (GameSpeed > 0f)
         {
             gameAccelerated = false;
             GameSpeed = 0;
-            this.pauseBtn.GetComponent<Image>().sprite = pauseBtnActive;
-            this.speedBtn.GetComponent<Image>().sprite = speedBtnInactive;
         }
         else
         {
             GameSpeed = 1;  
-            this.pauseBtn.GetComponent<Image>().sprite = pauseBtnInactive;
         }
     }
 
     public void SpeedGame()
     {
+        SoundManager.Instance.PlayEffect("menubutton");
         if (GameSpeed <= 1 && !gameAccelerated)
         {
-            this.speedBtn.GetComponent<Image>().sprite = speedBtnActive;
-            this.pauseBtn.GetComponent<Image>().sprite = pauseBtnInactive;
             gameAccelerated = true;
             GameSpeed = gameSpeedAcc;
         } else
         {
             GameSpeed = 1;
             gameAccelerated = false;
-            this.speedBtn.GetComponent<Image>().sprite = speedBtnInactive;
         }
+    }
+
+    public void SellWindow()
+    {
+        SoundManager.Instance.PlayEffect("menubutton");
+        sellMenu.SetActive(!sellMenu.activeSelf);
     }
 
     public void SellTower()
     {
+        SoundManager.Instance.PlayEffect("menubutton");
         if (SelectedTower != null)
         {
             Currency += Convert.ToInt32(SelectedTower.Price / 2);
             SelectedTower.GetComponentInParent<TileScript>().IsEmpty = true;
             Destroy(SelectedTower.transform.gameObject);
             DeselectTower();
+            SellWindow();
         }
+    }
+
+    public void CancelSelling()
+    {
+        SoundManager.Instance.PlayEffect("menubutton");
+        sellMenu.SetActive(!sellMenu.activeSelf);
     }
 
     public void ShowStatsHover()
@@ -425,6 +505,7 @@ public class GameManager : Singleton<GameManager>
 
     public void PauseMenu()
     {
+        SoundManager.Instance.PlayEffect("menubutton");
         if (!pauseMenuPanel.gameObject.activeSelf)
         {
             GameSpeed = 0;
@@ -448,15 +529,13 @@ public class GameManager : Singleton<GameManager>
             {
                 pauseBtn.SetActive(true);
                 speedBtn.SetActive(true);
-                this.pauseBtn.GetComponent<Image>().sprite = pauseBtnInactive;
-                this.speedBtn.GetComponent<Image>().sprite = speedBtnInactive;
             }
         }
     }
 
     public void ShowOptions()
     {
-
+        SoundManager.Instance.PlayEffect("menubutton");
         optionsMenuPanel.SetActive(!optionsMenuPanel.activeSelf);
 
     }

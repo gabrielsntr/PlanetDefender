@@ -105,6 +105,7 @@ public class TileScript : MonoBehaviour
         PlaceTower(GameManager.Instance.SelectedTower.NextLevelTower);
         GameManager.Instance.DeselectTower();
         GameManager.Instance.SelectTower(myTower);
+        SoundManager.Instance.PlayEffect("tower_upgrade");
     }
 
     private void ColorTile(Color newColor)
@@ -121,11 +122,19 @@ public class TileScript : MonoBehaviour
             for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / 1.5f)
             {
                 Color newColor = new Color(towerColor.r, towerColor.g, towerColor.b, Mathf.Lerp(alpha, 0.0f, t));
-                tower.transform.GetChild(2).GetComponent<SpriteRenderer>().color = newColor;
+                try
+                {
+                    tower.transform.GetChild(2).GetComponent<SpriteRenderer>().color = newColor;
+                } 
+                finally
+                {
+                    
+                }
                 yield return null;
             }
             tower.transform.GetChild(2).GetComponent<SpriteRenderer>().enabled = false;
             tower.transform.GetChild(2).GetComponent<SpriteRenderer>().color = towerColor;
+
         }
     }
 

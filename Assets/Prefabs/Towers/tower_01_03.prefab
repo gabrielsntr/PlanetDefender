@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   projectileType: Bullet
+  sound: dshk_fire_3p
   projectileSpeed: 30
   attackCooldown: 0.5
 --- !u!1 &6018483822436668068
@@ -259,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c56402f51cd8e4b99877bd864296fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLevelTower: {fileID: 0}
   turretName: Bullet Tower Lvl. 3
   price: 60
 --- !u!1 &6018483823074214843

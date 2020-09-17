@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 16
-  projectileType: LaserBeam
+  projectileType: Laser
+  sound: laser_shot
   projectileSpeed: 20
   attackCooldown: 0.25
 --- !u!1 &6644478012766508320
@@ -278,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c56402f51cd8e4b99877bd864296fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLevelTower: {fileID: 0}
   turretName: Laser Tower Lvl. 3
   price: 120
 --- !u!1 &8129414126623760202

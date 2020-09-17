@@ -18,14 +18,12 @@ public class TowerRange : MonoBehaviour
     public Monster Target { get => target; }
 
     [SerializeField]
-    private string projectileType;
+    private string projectileType, sound;
 
     [SerializeField]
     private float projectileSpeed;
 
     public float ProjectileSpeed { get => projectileSpeed; }
-    
-    
     public int Damage { get => damage; }
     public float AttackCooldown { get => attackCooldown; }
     public string ProjectileType { get => projectileType; }
@@ -87,6 +85,7 @@ public class TowerRange : MonoBehaviour
         Projectile projectile = GameManager.Instance.Pool.GetObject(projectileType).GetComponent<Projectile>();
         projectile.transform.position = transform.position;
         projectile.Initialize(this);
+        SoundManager.Instance.PlayEffect(sound);
     }
 
     public void OnTriggerEnter2D(Collider2D other)

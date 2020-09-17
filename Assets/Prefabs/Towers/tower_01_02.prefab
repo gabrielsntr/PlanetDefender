@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   projectileType: Bullet
+  sound: dshk_fire_3p
   projectileSpeed: 30
   attackCooldown: 1
 --- !u!1 &6442195116734829309

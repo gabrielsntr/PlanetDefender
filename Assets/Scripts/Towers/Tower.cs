@@ -37,6 +37,15 @@ public class Tower : MonoBehaviour
     {
         if (rangeSpriteRenderer != null)
         {
+            if (transform.Find("Range").GetComponent<TowerRange>().ProjectileType == "Bullet")
+            {
+                SoundManager.Instance.PlayEffect("tower_select_gun");
+            }
+            else if (transform.Find("Range").GetComponent<TowerRange>().ProjectileType == "Laser")
+            {
+                SoundManager.Instance.PlayEffect("tower_select_beam");
+            }
+            
             rangeSpriteRenderer.enabled = true;
         }
     }

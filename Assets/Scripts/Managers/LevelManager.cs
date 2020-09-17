@@ -119,7 +119,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private string[] ReadLevelText()
     {
-        TextAsset bindData = Resources.Load("Level") as TextAsset;
+        TextAsset bindData = Resources.Load("Level" + LevelSelected.Level.ToString()) as TextAsset;
         string data = bindData.text.Replace(Environment.NewLine, string.Empty);
         return data.Split('-');
     }

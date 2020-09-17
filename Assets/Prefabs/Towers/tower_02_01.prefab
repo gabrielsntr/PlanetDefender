@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 4
   projectileType: Laser
+  sound: laser_shot
   projectileSpeed: 20
   attackCooldown: 0.75
 --- !u!1 &559177920139607589
