@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Managers\MainMenuManager.cs" />
     <Compile Include="Assets\Scripts\Managers\SettingsManager.cs" />
     <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\WaveManager.cs" />
     <Compile Include="Assets\Scripts\Monsters\BarScript.cs" />
     <Compile Include="Assets\Scripts\Monsters\Monster.cs" />
     <Compile Include="Assets\Scripts\Monsters\Stat.cs" />

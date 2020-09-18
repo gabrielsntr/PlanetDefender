@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 479841541}
   - component: {fileID: 2560970084925734728}
   - component: {fileID: 1906243042888550269}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextLevelTower: {fileID: 0}
   turretName: Laser Tower Lvl. 3
-  price: 120
+  price: 300
 --- !u!1 &8129414126623760202
 GameObject:
   m_ObjectHideFlags: 0

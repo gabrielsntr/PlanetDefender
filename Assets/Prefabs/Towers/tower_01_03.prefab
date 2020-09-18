@@ -262,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextLevelTower: {fileID: 0}
   turretName: Bullet Tower Lvl. 3
-  price: 60
+  price: 200
 --- !u!1 &6018483823074214843
 GameObject:
   m_ObjectHideFlags: 0

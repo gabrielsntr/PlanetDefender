@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsManager : MonoBehaviour
+public class SettingsManager : Singleton<SettingsManager>
 {
     #region Settings Component References
     
@@ -15,6 +15,8 @@ public class SettingsManager : MonoBehaviour
     public Dropdown resolution;
     [SerializeField]
     public Toggle fullScreen;
+
+    public bool firstTimePlaying = true;
     #endregion
 
     #region Player Pref Key Constants
@@ -23,6 +25,7 @@ public class SettingsManager : MonoBehaviour
     private const string EFFECTS_VOLUME_PREF = "effects-volume";
     private const string RESOLUTION_PREF = "resolution";
     private const string FULLSCREEN_PREF = "fullscreen";
+    private const string FIRST_TIME_PLAYING = "first-time";
 
     #endregion
 
@@ -35,7 +38,16 @@ public class SettingsManager : MonoBehaviour
         volumeSliderMusic.value = PlayerPrefs.GetFloat(MUSIC_VOLUME_PREF, 1);
         volumeSliderEffects.value = PlayerPrefs.GetFloat(EFFECTS_VOLUME_PREF, 1);
         fullScreen.isOn = GetBoolPref(FULLSCREEN_PREF, true);
+        firstTimePlaying = GetBoolPref(FIRST_TIME_PLAYING, true);
         resolution.value = resolutions.IndexOf(PlayerPrefs.GetString(RESOLUTION_PREF, "1280x720"));
+    }
+
+    public void FirstTimePlaying()
+    {
+        if (firstTimePlaying)
+        {
+            firstTimePlaying = false;
+        }
     }
 
     public void FullScreenToggle()

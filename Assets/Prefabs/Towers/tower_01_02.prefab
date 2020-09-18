@@ -263,7 +263,7 @@ MonoBehaviour:
   nextLevelTower: {fileID: 6018483822679275708, guid: 529b884e65e4998429b68ec4c98cde12,
     type: 3}
   turretName: Bullet Tower Lvl. 2
-  price: 45
+  price: 90
 --- !u!1 &6442195118421235983
 GameObject:
   m_ObjectHideFlags: 0

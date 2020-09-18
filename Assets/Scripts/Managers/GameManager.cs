@@ -25,15 +25,17 @@ public class GameManager : Singleton<GameManager>
     private GameObject menuBtn, speedBtn, pauseBtn, towersBtn, waveBtn, 
         wavePanel, currencyPanel, healthPanel, upgradePanel, statsPanel, 
         pauseMenuPanel, gameOverUI, optionsMenuPanel, sellMenu, exitMenu, 
-        restartMenu, victoryPanel;
+        restartMenu, victoryPanel, canvasUi;
 
     private List<Monster> activeMonsters = new List<Monster>();
 
     private Tower selectedTower;
 
+    private WaveManager waveManager;
+
     private float speed;
 
-    private int wave = 0, lives, health, currency;
+    private int wave, lives, health, currency;
 
     private bool gameAccelerated, gameOver = false;
 
@@ -110,8 +112,10 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
+        FirstTimePlaying();
         upgradePanel.SetActive(false);
         MonstersKilled = 0;
+        wave = 1;
         Lives = 10;
         Currency = 100;
         WaveOver = true;
@@ -137,7 +141,7 @@ public class GameManager : Singleton<GameManager>
         }
         else
         {
-            if (Currency < tower.Price)
+            if (Currency < SelectedTower.NextLevelTower.GetComponent<Tower>().Price)
             {
                 upgradePanel.transform.Find("UpgradeBtn").GetComponent<Image>().color = Color.grey;
                 upgradePanel.transform.Find("UpgradeBtn").transform.Find("UpgradeTxt").GetComponent<Text>().color = Color.grey;
@@ -208,7 +212,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (SelectedTower != null)
         {
-            if (Currency >= SelectedTower.Price)
+            if (Currency >= SelectedTower.NextLevelTower.GetComponent<Tower>().Price)
             {
                 SoundManager.Instance.PlayEffect("menubutton");
                 SelectedTower.GetComponentInParent<TileScript>().UpgradeTower();
@@ -237,7 +241,12 @@ public class GameManager : Singleton<GameManager>
                 healthPanel.SetActive(true);
                 currencyPanel.SetActive(true);
                 towersBtn.SetActive(true);
-            } else
+            }
+            else if (canvasUi.transform.Find("Lore").gameObject.activeSelf)
+            {
+                FirstTimePlaying();
+            }
+            else
             {
                 PauseMenu();
             }
@@ -262,55 +271,34 @@ public class GameManager : Singleton<GameManager>
         WaveOver = false;
         GameSpeed = 1f;
         wave++;
-        waveText.text = string.Format("Wave: {0}/40", wave);
+        waveText.text = string.Format("Onda: {0}/40", wave);
         StartCoroutine(SpawnWave());
         pauseBtn.SetActive(true);
         speedBtn.SetActive(true);
         waveBtn.SetActive(false);
         towersBtn.SetActive(false);
         upgradePanel.SetActive(false);
+        TotalMonsters = waveManager.MonsterCount;
         HideStats();
-        TotalMonsters = wave*3;
     }
 
     private IEnumerator SpawnWave()
     {
-        for (int i = 0; i < wave*3; i++)
+        waveManager = new WaveManager(wave);
+        for (int i = 0; i < waveManager.MonsterCount; i++)
         {
             LevelManager.Instance.GeneratePath();
-            int monsterIndex = UnityEngine.Random.Range(0, 4);
-            string type = string.Empty;
-
-            switch (monsterIndex)
-            {
-                case 0:
-                    type = "BlueMonster";
-                    break;
-                case 1:
-                    type = "RedMonster";
-                    break;
-                case 2:
-                    type = "GreenMonster";
-                    break;
-                case 3:
-                    type = "PurpleMonster";
-                    break;
-                default:
-                    break;
-            }
-
-            Monster monster = Pool.GetObject(type).GetComponent<Monster>();
+            Monster monster = Pool.GetObject(waveManager.GetMonster(i)).GetComponent<Monster>();
             this.health = monster.Health;
             this.speed = monster.Speed;
-            //Debug.Log("Wave: " + wave + ", type: " + type + ", health: " + health + ", speed: " + speed);
-            if (wave % 2 == 0)
+            if (wave % 3 == 0)
             {
-                this.speed += speed * 0.1f;
-                this.health += Convert.ToInt32(health * 0.5);
+                //this.speed += speed * 0.1f;
+                this.health += Convert.ToInt32(health * 0.1f);
             }
             monster.Spawn(health, speed);
             activeMonsters.Add(monster);
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 2f));
         }
     }
 
@@ -338,7 +326,7 @@ public class GameManager : Singleton<GameManager>
         towersBtn.SetActive(true);
         GameSpeed = 1;
         gameAccelerated = false;
-        this.Currency += wave*5;
+        //this.Currency += wave*5;
     }
 
     public void GameOver()
@@ -537,7 +525,19 @@ public class GameManager : Singleton<GameManager>
     {
         SoundManager.Instance.PlayEffect("menubutton");
         optionsMenuPanel.SetActive(!optionsMenuPanel.activeSelf);
+    }
 
+    public void FirstTimePlaying()
+    {
+        canvasUi.transform.Find("Lore").gameObject.SetActive(!canvasUi.transform.Find("Lore").gameObject.activeSelf);
+        wavePanel.SetActive(!wavePanel.activeSelf);
+        healthPanel.SetActive(!healthPanel.activeSelf);
+        currencyPanel.SetActive(!currencyPanel.activeSelf);
+        towersBtn.SetActive(!towersBtn.activeSelf);
+        waveBtn.SetActive(!waveBtn.activeSelf);
+        menuBtn.SetActive(!menuBtn.activeSelf);
+        currencyPanel.SetActive(!currencyPanel.activeSelf);
+        wavePanel.SetActive(!wavePanel.activeSelf);
     }
 
 }

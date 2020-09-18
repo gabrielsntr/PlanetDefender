@@ -188,7 +188,7 @@ public class Monster : MonoBehaviour
         SoundManager.Instance.PlayEffect("monster_dying");
         GameManager.Instance.MonstersKilled += 1;
         GetComponent<SpriteRenderer>().sortingOrder--;
-        GameManager.Instance.Currency += 2;
+        GameManager.Instance.Currency += 1;
     }
 
 }

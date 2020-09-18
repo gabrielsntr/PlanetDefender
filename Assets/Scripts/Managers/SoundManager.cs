@@ -13,7 +13,6 @@ public class SoundManager : Singleton<SoundManager>
 
     public Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
 
-    private bool canPlay = true;
 
     // Start is called before the first frame update
     void Start()
